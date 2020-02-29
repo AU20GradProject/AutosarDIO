@@ -12,7 +12,7 @@ Module ID : 020
 #include "Dio_Lcfg.h"
 #include "Dio_MemMap.h"
 #include "SchM_Dio.h"
-#include "Det.h"
+#include "..\DET\Det.h"
 
 
 

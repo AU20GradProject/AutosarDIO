@@ -48,12 +48,14 @@
 /* CHANNEL GROUPS ID symbolic names for Dio_ChannelGroupType */
 /* 10.1.6 */
 
-#define DioConf_PortA_Group1   (&MyDioGroupArray[0])
-#define DioConf_PortB_Group1   (&MyDioGroupArray[1])
-#define DioConf_PortC_Group1   (&MyDioGroupArray[2])
-#define DioConf_PortD_Group1   (&MyDioGroupArray[3])
-#define DioConf_PortE_Group1   (&MyDioGroupArray[4])
-#define DioConf_PortF_Group1   (&MyDioGroupArray[5])
+#define DIO_GROUPS_NUMBER       6
+
+#define DioConf_PortA_Group1    (&MyDioGroupArray[0])
+#define DioConf_PortB_Group1    (&MyDioGroupArray[1])
+#define DioConf_PortC_Group1    (&MyDioGroupArray[2])
+#define DioConf_PortD_Group1    (&MyDioGroupArray[3])
+#define DioConf_PortE_Group1    (&MyDioGroupArray[4])
+#define DioConf_PortF_Group1    (&MyDioGroupArray[5])
 
 
 
@@ -110,44 +112,6 @@
 #define DioConf_Channel_40      0x4005D010
 #define DioConf_Channel_41      0x4005D020
 #define DioConf_Channel_42      0x4005D040
-
-/*********************************************************************/
-
-/* this is generated to configure the channel groups configured by user by configuration tool */
-
-
-#define DIO_CHANNEL_GROUPS_CONFIG_DATA \
-{\
-    {\
-        .port = DioConf_PortA ,\
-    }\
-    \
-    ,\
-    {\
-        .port = DioConf_PortB ,\
-    }\
-    \
-    ,\
-    {\
-        .port = DioConf_PortC ,\
-    }\
-    \
-    ,\
-    {\
-        .port = DioConf_PortD ,\
-    }\
-    \
-    ,\
-    {\
-        .port = DioConf_PortE ,\
-    }\
-    \
-    ,\
-    {\
-        .port = DioConf_PortF ,\
-    }\
-    \
-}
 
 /*********************************************************************/
 

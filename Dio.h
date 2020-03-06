@@ -193,7 +193,7 @@ FUNC( Dio_LevelType, DIO_CODE ) Dio_FlipChannel( Dio_ChannelType ChannelId ) ;
 
 /* array of channel groups configured by user in configuration tool */
 
-extern CONST( Dio_ChannelGroupType, DIO_CONFIG_DATA )  MyDioGroupArray [] ;
+extern CONST( Dio_ChannelGroupType, DIO_CONFIG_DATA )  MyDioGroupArray [DIO_GROUPS_NUMBER] ;
 
 
 /*********************************************************************************************************/

@@ -13,7 +13,6 @@ Module ID : 020
 #define DIO_LCFG_H
 
 /* arrays provided by configuration tools to link time configurations */
-extern  CONST( uint8, DIO_CONFIG_DATA ) DioPortMask [] ;
-extern CONST( uint8_least, DIO_CONFIG_DATA ) DioPortOffset [] ;
+extern  CONST( Dio_ChannelGroupType, DIO_CONFIG_DATA )  MyDioGroupArray [DIO_GROUPS_NUMBER] ;
 
 #endif  /* DIO_LCFG_H */

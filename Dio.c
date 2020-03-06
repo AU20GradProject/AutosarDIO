@@ -53,8 +53,6 @@ Module ID : 020
 
 /* array of channels groups provided by configuration tools */
 
-CONST( Dio_ChannelGroupType, DIO_CONFIG_DATA )  MyDioGroupArray [] = DIO_CHANNEL_GROUPS_CONFIG_DATA ;
-
 /***********************************************************************************************************/
 
 /* symbolic names provided for ports and channels is for AHB bus so if APB pus is activated those values must be modified */
@@ -321,8 +319,8 @@ FUNC( Dio_PortLevelType, DIO_CODE ) Dio_ReadChannelGroup( const Dio_ChannelGroup
 {
 
     VAR( Dio_PortType, AUTOMATIC ) temp_Port = 0x00 ;
-    VAR( uint8, AUTOMATIC ) temp_mask = DioPortMask [ ( ChannelGroupIdPtr - MyDioGroupArray ) ] ;
-    VAR( uint8_least, AUTOMATIC ) temp_offset = DioPortOffset [ ( ChannelGroupIdPtr - MyDioGroupArray ) ] ;
+    VAR( uint8, AUTOMATIC ) temp_mask = ChannelGroupIdPtr->mask ;
+    VAR( uint8, AUTOMATIC ) temp_offset = ChannelGroupIdPtr->offset ;
 
     temp_Port = Dio_Prvate_CheckBusType( ChannelGroupIdPtr->port ) ;
 
@@ -379,8 +377,8 @@ FUNC( void, DIO_CODE ) Dio_WriteChannelGroup( const Dio_ChannelGroupType* Channe
 {
 
     VAR( Dio_PortType, AUTOMATIC ) temp_Port = 0x00 ;
-    VAR( uint8, AUTOMATIC ) temp_mask = DioPortMask [( ChannelGroupIdPtr - MyDioGroupArray )] ;
-    VAR( uint8_least, AUTOMATIC ) temp_offset = DioPortOffset [( ChannelGroupIdPtr - MyDioGroupArray )] ;
+    VAR( uint8, AUTOMATIC ) temp_mask = ChannelGroupIdPtr->mask ;
+    VAR( uint8, AUTOMATIC ) temp_offset = ChannelGroupIdPtr->offset ;
 
     temp_Port = Dio_Prvate_CheckBusType( ChannelGroupIdPtr->port ) ;
 

@@ -16,7 +16,56 @@ Module ID : 020
  /* 10.1.6 */
  /* those array is used to link time configuration of channel groups created by user using configuration tool */
 
-CONST( uint8, DIO_CONFIG_DATA ) DioPortMask [] = { 0x0F, 0x1E, 0x3C, 0x78, 0xF0, 0xE0 } ;
-CONST( uint8_least, DIO_CONFIG_DATA ) DioPortOffset [] = { 0, 1, 2, 3, 4, 5 } ;
+CONST( Dio_ChannelGroupType, DIO_CONFIG_DATA )  MyDioGroupArray [DIO_GROUPS_NUMBER]  =
+{
+ {
+  .port = DioConf_PortA
+  ,
+  .mask = 0x0F
+  ,
+  .offset = 0
+ }
+ ,
+ {
+  .port = DioConf_PortB
+  ,
+  .mask = 0x1E
+  ,
+  .offset = 1
+ }
+ ,
+ {
+  .port = DioConf_PortC
+  ,
+  .mask = 0x3C
+  ,
+  .offset = 2
+ }
+ ,
+ {
+  .port = DioConf_PortD
+  ,
+  .mask = 0x78
+  ,
+  .offset = 3
+ }
+ ,
+ {
+  .port = DioConf_PortE
+  ,
+  .mask = 0x30
+  ,
+  .offset = 4
+ }
+ ,
+ {
+  .port = DioConf_PortF
+  ,
+  .mask = 0x1F
+  ,
+  .offset = 0
+ }
+};
+
 
 /*********************************************************************/

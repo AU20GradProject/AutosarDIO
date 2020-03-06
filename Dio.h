@@ -13,7 +13,7 @@ Module ID : 020
 #define DIO_H
 
 
-#include "Std_types.h"
+#include "Common\Std_types.h"
 #include "Dio_Cfg.h"
 
 

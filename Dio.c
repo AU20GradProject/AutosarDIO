@@ -10,8 +10,8 @@ Module ID : 020
 
 #include "Dio.h"
 #include "Dio_Lcfg.h"
-#include "Dio_MemMap.h"
-#include "SchM_Dio.h"
+#include "Common\Dio_MemMap.h"
+#include "Common\SchM_Dio.h"
 #include "..\DET\Det.h"
 
 

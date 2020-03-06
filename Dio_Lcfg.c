@@ -9,7 +9,7 @@ Module ID : 020
 */
 
 #include "Dio.h"
-#include "Dio_MemMap.h"
+#include "Common\Dio_MemMap.h"
 
  /*********************************************************************/
 

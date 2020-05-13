@@ -484,6 +484,8 @@ FUNC( void, DIO_CODE ) Dio_GetVersionInfo( Std_VersionInfoType* VersionInfo )
 
 FUNC( Dio_LevelType, DIO_CODE ) Dio_FlipChannel( Dio_ChannelType ChannelId )
 {
+
+
     ChannelId = Dio_Prvate_CheckBusType( ChannelId ) ;
 
     #if DIO_DEV_ERROR_DETECT == STD_OFF
@@ -492,6 +494,9 @@ FUNC( Dio_LevelType, DIO_CODE ) Dio_FlipChannel( Dio_ChannelType ChannelId )
     /*  this will access one bit if it read high will return non zero value if not it will be zero
         other bits even if they are 1 according to hardware masking feature it will be return 0
         so values of symbolic name assigned to "Dio_ChannelType must" be use address of port and masking feature */
+
+    CS_ON ;
+
     if ( STD_LOW == *( ( volatile P2VAR( uint32, AUTOMATIC, REGSPACE ) ) ChannelId ) )
     {
         *( ( volatile P2VAR( uint32, AUTOMATIC, REGSPACE ) ) ChannelId ) =  0xFF ;
@@ -502,6 +507,9 @@ FUNC( Dio_LevelType, DIO_CODE ) Dio_FlipChannel( Dio_ChannelType ChannelId )
         *( ( volatile P2VAR( uint32, AUTOMATIC, REGSPACE ) ) ChannelId ) =  0x00 ;
         ReadChannelResult = STD_LOW ;
     }
+
+
+    CS_OFF ;
 
 
     return ReadChannelResult ;
@@ -518,6 +526,8 @@ FUNC( Dio_LevelType, DIO_CODE ) Dio_FlipChannel( Dio_ChannelType ChannelId )
 
     if ( STD_LOW == ( ( ( ChannelId & BASE_PORT_COMMON_ADDRESS_MASKING ) - BASE_PORT_COMMON_ADDRESS ) % TEST_PARITY_CONSTANT ) )
     {
+        CS_ON ;
+
         if ( STD_LOW == *( ( volatile P2VAR( uint32, AUTOMATIC, REGSPACE ) ) ChannelId ) )
         {
             *( ( volatile P2VAR( uint32, AUTOMATIC, REGSPACE ) ) ChannelId ) =  0xFF ;
@@ -528,6 +538,9 @@ FUNC( Dio_LevelType, DIO_CODE ) Dio_FlipChannel( Dio_ChannelType ChannelId )
             *( ( volatile P2VAR( uint32, AUTOMATIC, REGSPACE ) ) ChannelId ) =  0x00 ;
             ReadChannelResult = STD_LOW ;
         }
+
+        CS_OFF ;
+
     }
     else
     {
@@ -535,9 +548,11 @@ FUNC( Dio_LevelType, DIO_CODE ) Dio_FlipChannel( Dio_ChannelType ChannelId )
          Det_ReportError ( DIO_MODULE_ID, 0, DIO_FILP_CHANNEL_ID , DIO_E_PARAM_INVALID_CHANNEL_ID ) ;
     }
 
+
     return ReadChannelResult ;
 
     #endif // ERROR
+
 }
 
 #endif // FLIP_CHANNEL
